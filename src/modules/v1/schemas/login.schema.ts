@@ -9,7 +9,7 @@ const LoginSchema: SomeJSONSchema = {
             description: 'Member email',
             format: 'email',
         },
-        passw: { type: 'string' }
+        passw: { type: 'string', minLength: 6 }
     },
     required: ['email', 'passw'],
     additionalProperties: false,
