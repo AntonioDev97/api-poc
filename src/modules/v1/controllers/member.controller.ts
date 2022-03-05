@@ -61,7 +61,7 @@ export class MemberController {
             Logger.info(`End process - storeMember: ${JSON.stringify(SaveMemberResponse)}`);
             if (SaveMemberResponse.success) 
                 return hdlResponse.setResponse(response, 200, 'Member has been stored successfully!', SaveMemberResponse.data);
-            else return hdlResponse.setResponse(response, 409, 'Error member not stored!', SaveMemberResponse.errors);
+            else return hdlResponse.setResponse(response, 409, 'Error member duplicated try with another email!', SaveMemberResponse.errors);
         } catch (error) {
             Logger.error('Error - storeMember ', error);
             return hdlResponse.setResponse(response, 500, 'Error member not stored, please try again!', error);
